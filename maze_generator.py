@@ -6,13 +6,9 @@ class MazeGenerator:
     
     @staticmethod
     def generate(width: int, height: int) -> List[List[int]]:
-        """Sinh mê cung ngẫu nhiên với kích thước cho trước"""
-
         # Đảm bảo kích thước là số lẻ
-        if width % 2 == 0:
-            width += 1
-        if height % 2 == 0:
-            height += 1
+        if width % 2 == 0: width += 1
+        if height % 2 == 0: height += 1
 
         # Khởi tạo mê cung toàn tường
         maze = [[1 for _ in range(width)] for _ in range(height)]
@@ -39,6 +35,15 @@ class MazeGenerator:
 
         # Đặt điểm bắt đầu và kết thúc
         maze[start_y][start_x] = 2
-        maze[height - 2][width - 2] = 3
+        end_x, end_y = width - 2, height - 2
+        maze[end_y][end_x] = 3
+
+        # Tạo thêm lối đi gần điểm kết thúc
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ex, ey = end_x + dx, end_y + dy
+            if 0 < ex < width - 1 and 0 < ey < height - 1:
+                if maze[ey][ex] == 1 and random.random() < 0.5:  # Xác suất 50% mở
+                    maze[ey][ex] = 0
+                    maze[(ey + end_y) // 2][(ex + end_x) // 2] = 0
 
         return maze

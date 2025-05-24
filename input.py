@@ -26,14 +26,14 @@ class MazeSizeInputWindow:
         style.configure("TEntry", font=("Arial", 12))
         
         # Nhãn và ô nhập chiều rộng
-        ttk.Label(self.root, text="Chiều rộng (số lẻ):").grid(row=0, column=0, sticky="nw", padx=10, pady=5)
+        ttk.Label(self.root, text="Chiều rộng:").grid(row=0, column=0, sticky="nw", padx=10, pady=5)
         self.width_entry = ttk.Entry(self.root)
         self.width_entry.grid(row=0, column=1, sticky="ne", padx=10, pady=5)
         # FIX 3: Bind Enter cho width_entry
         self.width_entry.bind('<Return>', lambda event: self.start_maze_solver())
         
         # Nhãn và ô nhập chiều cao
-        ttk.Label(self.root, text="Chiều cao (số lẻ):").grid(row=1, column=0, sticky="nwe", padx=10, pady=5)
+        ttk.Label(self.root, text="Chiều cao:").grid(row=1, column=0, sticky="nwe", padx=10, pady=5)
         self.height_entry = ttk.Entry(self.root)
         self.height_entry.grid(row=1, column=1, sticky="ne", padx=10, pady=5)
         # FIX 3: Bind Enter cho height_entry
