@@ -48,6 +48,8 @@ s.upper()       # 'HELLO WORLD'
 s.title()       # 'Hello World'
 s.capitalize()  # 'Hello world'
 s.swapcase()    # 'hELLO wORLD'
+s.replace('l', 'L')    # 'HeLLo WorLd'
+s.find("lo")           # Trả về số 3, trả về -1 nếu ko thấy
 
 s = "abcdefg"
 s[1:4]     # 'bcd'        (chỉ số 1 đến 3)
@@ -88,6 +90,18 @@ mydict = dict(sorted(mydict.items(), key=lambda x: (-x[1], x[0])))
 
 max_key = max(mydict.keys())        # Tìm max key trong dict
 max_val = max(mydict.values())      # Tìm max value trong dict
+
+# Counter ---------------------------------------------------------------------------
+from collections import Counter
+
+# Đếm tần suất các phần tử trong một list hoặc chuỗi
+counts = Counter(['a', 'b', 'c', 'a', 'b', 'a'])
+# counts -> Counter({'a': 3, 'b': 2, 'c': 1}), là subclass của dict nhưng ko phải dict
+print(counts['a'])       # 3
+mydict = dict(counts)    # Chuyển Counter thành dict
+
+# Tìm các phần tử xuất hiện nhiều nhất
+counts.most_common(2) # [('a', 3), ('b', 2)]
 
 # Stack -----------------------------------------------------------------------------
 
