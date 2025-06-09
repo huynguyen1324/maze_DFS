@@ -1,0 +1,197 @@
+# Các hàm xử lý số -----------------------------------------------------------------
+
+abs(x)          # Giá trị tuyệt đối         abs(-7) = 7
+round(x, n)     # Làm tròn x                round(3.14159, 2) = 3.14
+pow(x, y)       # Lũy thừa (x**y)           pow(2, 3) = 8
+divmod(a, b)    # Trả về (a // b, a % b)    divmod(7, 2) = (3, 1)
+
+math.ceil(x)        # Làm tròn lên          math.ceil(2.3) → 3
+math.floor(x)       # Làm tròn xuống        math.floor(2.9) → 2
+math.sqrt(x)        # Căn bậc hai           math.sqrt(9) → 3.0
+math.factorial(n)   # Giai thừa             math.factorial(5) → 120
+math.gcd(a, b)      # Ước chung lớn nhất    math.gcd(12, 8) → 4
+math.lcm(a, b)      # Bội chung nhỏ nhất    math.lcm(4, 6) → 12
+
+# Mảng 1 chiều ---------------------------------------------------------------------
+
+arr.append(6)      # Chèn số 6 vào cuối dãy
+arr.insert(2, 10)  # Chèn số 10 vào vị trí 2
+arr.extend([7,8])  # Chèn mảng [7,8] vào cuối dãy
+
+arr.pop()       # xóa phần tử cuối
+arr.pop(1)      # xóa phần tử vị trí 1
+arr.remove(10)  # xóa phần tử 10 đầu tiên trong dãy
+arr.clear()     # xóa toàn bộ dãy
+
+pos = arr.index(3)  # Tìm ra vị trí đầu tiên của số 3 trong mảng
+cnt = arr.count(3)  # Tìm số lần xuất hiện của số 3 trong mảng
+
+arr.sort()              # Sắp xếp làm thay đổi mảng cũ
+arr_new = sorted(arr)   # Sắp xếp không làm thay đổi mảng cũ
+arr.sort(reverse=True)  # Sắp xếp giảm dần
+
+len(arr)  # Độ dài mảng
+min(arr)  # Giá trị nhỏ nhất trong mảng
+max(arr)  # Giá trị lớn nhất trong mảng
+sum(arr)  # Tổng các phần tử
+
+# Mảng 2 chiều ---------------------------------------------------------------------
+
+matrix = [[0 for _ in range(10)] for _ in range(10)]    # Khai báo mảng 2 chiều
+list1.append(list2)     # List append list thành mảng 2 chiều 2 dòng
+
+# Xử lý chuỗi ----------------------------------------------------------------------
+
+s = "Hello World"
+s.lower()       # 'hello world'
+s.upper()       # 'HELLO WORLD'
+s.title()       # 'Hello World'
+s.capitalize()  # 'Hello world'
+s.swapcase()    # 'hELLO wORLD'
+
+s = "abcdefg"
+s[1:4]     # 'bcd'        (chỉ số 1 đến 3)
+s[:4]      # 'abcd'       (từ đầu đến 3)
+s[3:]      # 'defg'       (từ 3 đến hết)
+s[::-1]    # 'gfedcba'    (đảo ngược chuỗi)
+s[::2]     # 'aceg'       (mỗi 2 ký tự)
+s[1::2]    # 'bdf'        (từ index 1, nhảy 2)
+s[-1]      # 'g'          (ký tự cuối)
+s[-2]      # 'f'          (gần cuối)
+s[-3:]     # 'efg'        (3 ký tự cuối)
+s[:-3]     # 'abcd'       (bỏ 3 ký tự cuối)
+s[5:2:-1]  # 'fed'        (từ index 5 ngược về 3)
+s[-2::-1]  # 'fedcba'     (từ gần cuối ngược về đầu)
+
+ma = f"KH{(i+1):02d}"   # Định dạng KH cùng 2 chữ số
+count = len(set(s))     # Đếm số kí tự khác nhau trong chuỗi
+count = s.count(str))   # Đếm số lần xuất hiện của chuỗi con
+
+# Set ------------------------------------------------------------------------------
+
+myset = set()       # Khởi tạo set
+myset.add(5)        # Thêm phần tử
+myset.remove(5)     # Xoá phần tử, lỗi nếu ko tồn tại
+myset.discard(5)    # Xoá phần tử, lỗi nếu tồn tại
+
+myset = set1 | set2     # Giao của 2 set
+myset = set1 & set2     # Hợp của 2 set
+myset = set1 - set2     # Giao của 2 set
+
+# Dict ------------------------------------------------------------------------------
+
+mydict = {}
+
+# Xếp theo value giảm dần, rồi key tăng dần
+mydict = sorted(mydict.items(), key=lambda x: (-x[1], x[0]))
+mydict = dict(sorted(mydict.items(), key=lambda x: (-x[1], x[0])))
+
+max_key = max(mydict.keys())        # Tìm max key trong dict
+max_val = max(mydict.values())      # Tìm max value trong dict
+
+# Stack -----------------------------------------------------------------------------
+
+from collections import deque
+
+
+stack = []          # Cách 1
+stack = deque()     # Cách 2
+
+
+stack.append(10)    # Thêm phần tử và cuối
+top = stack[-1]     # Xem phần tử cuối
+top = stack.pop()   # Lấy ra phần tử cuối
+
+# Queue -----------------------------------------------------------------------------
+
+from collections import deque
+
+
+# queue = [] không có hàm popleft()
+queue = deque()         # Cách 2
+
+
+queue.append(10)        # Thêm phần tử vào cuối
+top = queue[0]          # Xem phần tử đầu
+top = queue.popleft()   # Lấy ra phần tử đầu
+
+# Xử lý thời gian -------------------------------------------------------------------
+
+from datetime import datetime, timedelta
+
+dt = datetime.strptime(tgian, "%Y-%m-%d %H:%M:%S")      # Chuyển string thành tgian
+tgian = datetime.strftime(dt, "%Y-%m-%d %H:%M:%S")      # Chuyển tgian thành string
+
+seconds = (dt2 - dt1).totalseconds()    # Chuyển hiệu tgian thành giây
+dt += timedelta(days=1)                 # Cộng 1 ngày vào tgian
+
+# Biểu thức chính quy regex ---------------------------------------------------------
+
+words = re.split(r'[ \t\n,.;:!]+', text)        # Lọc từ khỏi các ký tự đặc biệt
+words = re.findall(r'[A-Za-z0-9]+', text)       # Lọc ra chữ và số
+
+
+# Các hàm def trong OOP -------------------------------------------------------------
+
+__init__        # Khởi tạo đối tượng
+__str__         # Định dạng chuỗi cho class
+__add__         # Định dạng toán tử + cho class
+__sub__         # Định dạng toán tử - cho class
+__mul__         # Định dạng toán tử * cho class
+
+# Vào ra file -----------------------------------------------------------------------
+
+# Đọc file văn bản
+with open("DATA_in.txt", "r", encoding="utf-8") as file_in_vb:
+    lines_vb = [line.strip() for line in file_in_vb]
+    for line in lines_vb:
+        print(line)
+
+# Đọc file nhị phân và decode
+with open("DATA.in", "rb") as file_in_np:
+    data_bytes = file_in_np.read()
+    text = data_bytes.decode("utf-8")
+
+for line in text.splitlines():
+    print(line.strip())
+
+# Ghi file văn bản
+with open("DATA_out.txt", "w", encoding="utf-8") as file_out_vb:
+    for line in lines_vb:
+        file_out_vb.write(line + "\n")
+
+# Ghi file nhị phân
+with open("DATA.out", "wb") as file_out_np:
+    file_out_np.write(text.encode("utf-8"))
+
+# Hoán vị, Tổ hợp -----------------------------------------------------------------------
+
+import math
+import itertools
+
+lst = [1, 2, 3, 4]
+k = 2
+
+# Tổ hợp chập k của lst
+combs = list(itertools.combinations(lst, k))    # combs = [(1, 2), (1, 3), (1, 4), (2, 3), (2, 4), (3, 4)]
+count_comb = math.comb(len(lst), k)             # count_comb = 6
+
+# Hoán vị chập k của lst
+perms = list(itertools.permutations(lst, k))    # perms = [(1, 2), (1, 3), (1, 4), (2, 1), (2, 3), (2, 4),
+                                                #          (3, 1), (3, 2), (3, 4), (4, 1), (4, 2), (4, 3)]
+count_perm = math.perm(len(lst), k)             # count_perm = 12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
